@@ -1,0 +1,7 @@
+Metadata,Ionization Freq.:541.433310:THz,Cooling Freq.:607.427854:THz,Repump Freq.:461.312182:THz,Window Start:160.000:us,Window Width:55.000:us,Cooling Sweeps Num:3:,Pulses Per Attempt:7
+h,Time	AttemptNum	IonCounts138	IonCounts138_std	NeutralCounts	NeutralCounts_std	BG	BG_std
+1621978183.7223377	1	657.5	35.9	2.3	638.6	21.9
+1621978209.5008702	2	657.3	20.9	1.7	642.0	21.2
+1621978235.019724	3	659.2	24.2	3.1	645.3	32.4
+1621978260.906682	4	653.0	19.1	1.6	645.7	20.9
+1621978286.3354442	5	630.7	27.9	2.4	640.4	25.6

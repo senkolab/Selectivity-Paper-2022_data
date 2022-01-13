@@ -1,0 +1,3 @@
+
+Metadata,IonizationFreq:541.433040,CoolingFreq:607.426010,RepumpFreq:461.312070,BG:624.100000,BGstd:21.049703
+Trapped after 4 attempts, 1618.300000 counts, 31.464424 std

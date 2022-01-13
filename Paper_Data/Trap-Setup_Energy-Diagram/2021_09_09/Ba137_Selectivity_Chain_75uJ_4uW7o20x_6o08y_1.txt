@@ -1,0 +1,2 @@
+Metadata,Ionization Freq.:541.433320:THz,Cooling Freq.:607.427844:THz,Repump Freq.:461.311320:THz,Window Start:160.000:us,Window Width:55.000:us,Cooling Sweeps Num:3:,Pulses Per Attempt:10
+h,Time	ExpNum	AttemptNum	NeutralCounts	NeutralCounts_std	NumIons	PeakPos

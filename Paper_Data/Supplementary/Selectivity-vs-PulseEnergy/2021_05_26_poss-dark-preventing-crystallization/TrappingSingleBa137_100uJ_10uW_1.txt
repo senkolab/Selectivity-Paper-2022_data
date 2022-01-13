@@ -1,0 +1,2 @@
+Metadata,Ionization Freq.:541.433310:THz,Cooling Freq.:607.427864:THz,Repump Freq.:461.312192:THz,Window Start:160.000:us,Window Width:55.000:us,Cooling Sweeps Num:3:,Pulses Per Attempt: 1
+Metadata,Ionization Freq.:541.433310:THz,Cooling Freq.:607.427864:THz,Repump Freq.:461.312192:THz,Window Start:160.000:us,Window Width:55.000:us,Cooling Sweeps Num:3:,Pulses Per Attempt: 1

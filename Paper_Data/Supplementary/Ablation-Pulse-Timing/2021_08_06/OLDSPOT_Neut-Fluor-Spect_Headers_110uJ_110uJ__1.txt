@@ -1,0 +1,12 @@
+
+h,Time	IonizationFreq	NeutralCounts
+
+h,Time	IonizationFreq	NeutralCounts
+
+h,Time	IonizationFreq	NeutralCounts
+
+h,Time	IonizationFreq	NeutralCounts
+
+h,Time	IonizationFreq	NeutralCounts
+
+h,Time	IonizationFreq	NeutralCounts

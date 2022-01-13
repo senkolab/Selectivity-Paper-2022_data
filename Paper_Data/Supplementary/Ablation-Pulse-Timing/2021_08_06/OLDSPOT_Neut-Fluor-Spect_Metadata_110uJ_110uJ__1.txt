@@ -1,0 +1,7 @@
+Metadata,Ionization Freqs.:541.433050  Window Start:145.000:us,Window Width:55.000:us,BG:0.34:,BG_std:0.5141984052872977:
+Metadata,Ionization Freqs.:541.433050  Window Start:145.000:us,Window Width:55.000:us,BG:0.38:,BG_std:0.6289674077406556:
+Metadata,Ionization Freqs.:541.433050  Window Start:145.000:us,Window Width:55.000:us,BG:0.32:,BG_std:0.5455272678794342:
+Metadata,Ionization Freqs.:541.433050  Window Start:145.000:us,Window Width:55.000:us,BG:0.34:,BG_std:0.62:
+Metadata,Ionization Freqs.:541.433050  Window Start:145.000:us,Window Width:55.000:us,BG:0.22:,BG_std:0.46:
+Metadata,Ionization Freqs.:541.433050  Window Start:145.000:us,Window Width:55.000:us,BG:0.26:,BG_std:0.4386342439892262:
+Metadata,Ionization Freqs.:541.433050  Window Start:145.000:us,Window Width:55.000:us,BG:0.46:,BG_std:0.6696267617113283:

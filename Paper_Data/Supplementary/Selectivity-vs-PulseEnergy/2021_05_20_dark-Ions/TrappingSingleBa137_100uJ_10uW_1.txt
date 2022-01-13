@@ -1,0 +1,4 @@
+Metadata,Ionization Freq.:541.433312:THz,Cooling Freq.:607.427864:THz,Repump Freq.:461.312192:THz,Window Start:160.000:us,Window Width:55.000:us,Cooling Sweeps Num:3:,Pulses Per Attempt: 1
+Metadata,Ionization Freq.:541.433317:THz,Cooling Freq.:607.427864:THz,Repump Freq.:461.312192:THz,Window Start:160.000:us,Window Width:55.000:us,Cooling Sweeps Num:3:,Pulses Per Attempt: 1
+Metadata,Ionization Freq.:541.433317:THz,Cooling Freq.:607.427864:THz,Repump Freq.:461.312192:THz,Window Start:160.000:us,Window Width:55.000:us,Cooling Sweeps Num:3:,Pulses Per Attempt: 1
+22:32:19	Trapped after 2 attempts, Ion counts: 897.0, 23.5 std, Neutral counts: 1.0
