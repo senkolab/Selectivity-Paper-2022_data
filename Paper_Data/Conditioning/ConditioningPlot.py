@@ -260,7 +260,7 @@ ax[0].yaxis.set_minor_locator(MultipleLocator(25))
 ax[0].set_ylim(0, 155)
 # Cut off at ~1000 
 ax[0].set_xlim(0, 1000)
-ax[0].annotate('0.20 J/$\mathregular{cm^2}$', xy=(fluence_label_pos*1000,0.9*155), fontsize=legend_fontsize)
+ax[0].annotate('0.20 $J\: cm^{-2}$', xy=(fluence_label_pos*1000,0.9*155), fontsize=legend_fontsize)
 
 
 ## Plot high E counts 
@@ -280,7 +280,7 @@ newax.axis('off')
     
 
 ax[1].set_xlabel('Pulse number',fontsize=axis_fontsize)
-ax[1].set_ylabel('Neutral fluorescence / arb. units',fontsize=axis_fontsize)
+ax[1].set_ylabel('Neutral fluorescence (arb. units)',fontsize=axis_fontsize)
 ax[1].tick_params(axis='both', which='major', labelsize=ticks_fontsize, width=graph_tick_width)
 ax[1].xaxis.set_major_locator(MultipleLocator(200))
 ax[1].xaxis.set_minor_locator(MultipleLocator(50))
@@ -290,7 +290,7 @@ ax[1].yaxis.set_label_coords(-.12, 1.0)
 ax[1].set_ylim(0, 500)
 # Cut off at ~1000 
 ax[1].set_xlim(0, 1000)
-ax[1].annotate('0.48 J/$\mathregular{cm^2}$', xy=(fluence_label_pos*1000,0.9*500), fontsize=legend_fontsize)
+ax[1].annotate('0.48 $J\: cm^{-2}$', xy=(fluence_label_pos*1000,0.9*500), fontsize=legend_fontsize)
 ax[1].text(425, -210, '(a)', ha='center', fontsize=8, font='Times New Roman')
 
 
@@ -334,4 +334,4 @@ plt.show()
 # ax2.legend()
 
 # plt.show()
-fig.savefig('Conditioning-vs-Pulse_v1.pdf', dpi=300, bbox_inches='tight', format='pdf')
+fig.savefig('Conditioning-vs-Pulse_v2.pdf', dpi=300, bbox_inches='tight', format='pdf')

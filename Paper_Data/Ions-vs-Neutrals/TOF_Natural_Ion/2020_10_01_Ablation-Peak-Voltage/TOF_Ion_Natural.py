@@ -24,7 +24,7 @@ markersize = 3
 markeredgewidth = 0.5
 linewidth = 1
 elinewidth = 1
-legend_fontsize = 5
+legend_fontsize = 8
 axis_fontsize = 10
 ticks_fontsize = 6
 graph_edge_width = 0.5
@@ -37,7 +37,7 @@ columnwidth = 225.8775
 fullwidth = 469.75502
 inches_per_pt = 1/72.27
 golden_ratio = (5**.5 - 1) / 2
-fig_width_in = columnwidth * inches_per_pt
+fig_width_in = fullwidth * inches_per_pt
 height_ratio = golden_ratio
 fig_height_in = fig_width_in * height_ratio
 
@@ -86,10 +86,10 @@ ax1.errorbar(times*1e6, data_ave_no650, yerr=data_std_no650/np.sqrt(samples), fm
 line = ax1.vlines(time_neutral*1e6, np.min(data_ave)-5, np.max(data_ave)+5, alpha=0.5, \
                               color='k', label=r'Peak neutral atoms', linestyle='dotted', lw=linewidth)
     
-ax1.set_xlabel(r'Time / $\mu s$',fontsize=axis_fontsize)
-ax1.set_ylabel('Fluorescence / counts',fontsize=axis_fontsize)
+ax1.set_xlabel(r'Time ($\mu s$)',fontsize=axis_fontsize)
+ax1.set_ylabel('Fluorescence (counts)',fontsize=axis_fontsize)
 ax1.tick_params(axis='both', which='major', labelsize=ticks_fontsize, width=graph_tick_width)
 ax1.set(xlim=(-2, 13), ylim=(0, 14))
 ax1.legend(fontsize=legend_fontsize, framealpha=0.5, loc=1)
     
-fig.savefig('Ion_TOF_v1.pdf', dpi=300, bbox_inches='tight', format='pdf')
+fig.savefig('Ion_TOF_v2.pdf', dpi=300, bbox_inches='tight', format='pdf')

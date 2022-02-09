@@ -51,7 +51,7 @@ markersize = 3
 markeredgewidth = 0.5
 linewidth = 1
 elinewidth = 1
-legend_fontsize = 5
+legend_fontsize = 6.5
 axis_fontsize = 10
 ticks_fontsize = 6
 graph_edge_width = 0.5
@@ -131,8 +131,8 @@ ax1.plot(freq_range*1e-6, lineshape_total, color='k', label='Total lineshape', l
     
 ax1.set(xlim=(-50, 510), ylim=(0, np.max(lineshape_total)))
 # ax1.set_yscale('log')
-ax1.set_xlabel('Frequency / MHz',fontsize=axis_fontsize)
-ax1.set_ylabel('Neut. fluor. / arb. units',fontsize=axis_fontsize)
+ax1.set_xlabel('Frequency (MHz)',fontsize=axis_fontsize)
+ax1.set_ylabel('Neut. fluor. (arb. units)',fontsize=axis_fontsize)
 ax1.tick_params(axis='both', which='major', labelsize=ticks_fontsize, width=graph_tick_width)
 ax1.xaxis.set_major_locator(MultipleLocator(100))
 ax1.xaxis.set_minor_locator(MultipleLocator(50))
@@ -144,7 +144,7 @@ handles, labels = ax1.get_legend_handles_labels()
 handles2 = [handles[1], handles[2], handles[0], handles[3]]
 labels2 = [labels[1], labels[2], labels[0], labels[3]]
 
-ax1.legend(fontsize=legend_fontsize, loc=3, framealpha=0.5, handles=handles2, labels=labels2)
+ax1.legend(fontsize=legend_fontsize, loc=3, framealpha=0.7, handles=handles2, labels=labels2)
 
 
 sat2 = 10
@@ -223,8 +223,8 @@ ax2.set_ylabel('Loading Probability',fontsize=axis_fontsize, rotation=270, label
 ax2.tick_params(axis='both', which='major', labelsize=ticks_fontsize, width=graph_tick_width)
 ax2.yaxis.set_major_locator(MultipleLocator(0.1))
 ax2.yaxis.set_minor_locator(MultipleLocator(0.05))
-ax2.set(ylim=(0, 1))
-ax2.legend(fontsize=legend_fontsize, loc=1, framealpha=0.5, ncol=2, handles=handles2, labels=labels2)
+ax2.set(ylim=(0, 1.09))
+ax2.legend(fontsize=legend_fontsize, loc=1, framealpha=0.7, ncol=2, handles=handles2, labels=labels2)
 
 plt.show()
-#fig_spectrum.savefig('Selectivity_Ba137_Ba138_v4.pdf', dpi=300, bbox_inches='tight', format='pdf')
+fig_spectrum.savefig('Selectivity_Ba137_Ba138_v5.pdf', dpi=300, bbox_inches='tight', format='pdf')

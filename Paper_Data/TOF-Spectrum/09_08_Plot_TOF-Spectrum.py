@@ -170,11 +170,11 @@ if plot_TOF_spectrum:
                               color=color_spectrum, label=r'Slow-atom cutoff', linestyle='dotted', lw=linewidth)
         
     cb.ax.tick_params(labelsize=ticks_fontsize, axis='both', which='major')
-    cb.set_label('Counts / photon', rotation=270, labelpad=14)
-    ax1_TOF_spect.set_xlabel('Time / $\mu s$', fontsize=axis_fontsize)
+    cb.set_label('Counts (photon)', rotation=270, labelpad=10)
+    ax1_TOF_spect.set_xlabel('Time ($\mu s$)', fontsize=axis_fontsize)
     ax1_TOF_spect.xaxis.set_label_position('top')
     ax1_TOF_spect.xaxis.set_ticks_position('top')
-    ax1_TOF_spect.set_ylabel('Frequency / MHz + %3.2f THz'%(freq_plotting_offset*1e-12),fontsize=axis_fontsize)
+    ax1_TOF_spect.set_ylabel('Frequency (MHz + %3.2f THz)'%(freq_plotting_offset*1e-12),fontsize=axis_fontsize)
     ax1_TOF_spect.tick_params(axis='both', which='major', labelsize=ticks_fontsize)
     ax1_TOF_spect.xaxis.set_major_locator(MultipleLocator(10))
     ax1_TOF_spect.xaxis.set_minor_locator(MultipleLocator(2))
@@ -242,7 +242,7 @@ if plot_spectrum:
                           xerr=counts_error_data_slow, fmt='o', alpha=plot_alpha, label='Slow-atom spectrum', \
                               ms=markersize, mew=markeredgewidth, elinewidth=elinewidth)
     ax2_spectrum.plot(counts_spectrum_fit, freq_range_fit_plot, color=color_spectrum, \
-                      ms=markersize, mew=markeredgewidth, label=f'Fit: s={sat_slow_fit:0.0f}', lw=linewidth)
+                      ms=markersize, mew=markeredgewidth, label=f'Fit: $s={sat_slow_fit:0.0f}$', lw=linewidth)
     # textt = f"""
     # 553 nm Power: $8\: \mu W$
     # $^{{138}}\mathrm{{Ba}}$ Peak: {freq_slow_fit*1e-12:3.6f} THz
@@ -310,8 +310,8 @@ if plot_spectrum:
     ax2_spectrum.xaxis.set_ticks_position('top')
     ax2_spectrum.yaxis.set_label_position("right")
     ax2_spectrum.yaxis.set_ticks_position("right")
-    ax2_spectrum.set_xlabel('Counts / photon',fontsize=axis_fontsize)
-    ax2_spectrum.set_ylabel('Frequency / MHz + %3.2f THz'%(freq_plotting_offset*1e-12), \
+    ax2_spectrum.set_xlabel('Counts (photon)',fontsize=axis_fontsize)
+    ax2_spectrum.set_ylabel('Frequency (MHz + %3.2f THz)'%(freq_plotting_offset*1e-12), \
                             fontsize=axis_fontsize, rotation=270, labelpad=14)
     ax2_spectrum.tick_params(axis='both', which='major', labelsize=ticks_fontsize)
     ax2_spectrum.xaxis.set_major_locator(MultipleLocator(20))
@@ -358,8 +358,8 @@ if plot_TOF:
                  fmt='o', alpha=plot_alpha, label=f'${fluence_cm2:0.2f}\:J/cm^2$', \
                      ms=markersize, mew=markeredgewidth, elinewidth=elinewidth)
         
-    ax3_tof.set_xlabel('Time / $\mu s$',fontsize=axis_fontsize)
-    ax3_tof.set_ylabel('Counts / photon',fontsize=axis_fontsize)
+    ax3_tof.set_xlabel('Time ($\mu s$)',fontsize=axis_fontsize)
+    ax3_tof.set_ylabel('Counts (photon)',fontsize=axis_fontsize)
     ax3_tof.tick_params(axis='both', which='major', labelsize=ticks_fontsize)
     ax3_tof.xaxis.set_major_locator(MultipleLocator(10))
     ax3_tof.xaxis.set_minor_locator(MultipleLocator(2))
@@ -392,7 +392,7 @@ counts_TOF_scaled *= counts_TOF_scaled_scaling
 countserr_TOF_scaled *= counts_TOF_scaled_scaling
 if plot_velocity:
     plott = ax4_vel.errorbar((14.6e-3/time_data_TOF)*1e-3, counts_TOF_scaled, yerr=countserr_TOF_scaled, \
-                         fmt='o', alpha=plot_alpha, label=f'${fluence_cm2:0.2f}\:J/cm^2$', \
+                         fmt='o', alpha=plot_alpha, label=f'${fluence_cm2:0.2f}\:J\: cm^{{-2}}$', \
                              ms=markersize, mew=markeredgewidth, elinewidth=elinewidth)
 
 temp_init, temp_lower, temp_upper = 35000, 25000, 45000
@@ -420,10 +420,10 @@ if plot_velocity:
              ms=markersize, mew=markeredgewidth, alpha=plot_alpha, linestyle='--')
     yboundd = ax4_vel.get_ybound()
     trappable_cutoff = ax4_vel.vlines([.330], yboundd[0], yboundd[1], \
-                              color='black', label=r'$330\:m/s$ trap depth', linestyle='dotted', lw=linewidth)
+                              color='black', label=r'$330\:m\: s^{-1}$ trap depth', linestyle='dotted', lw=linewidth)
     ax4_vel.legend(fontsize=legend_fontsize, loc=4, framealpha=1)
-    ax4_vel.set_xlabel('Velocity / $km\cdot s^{-1}$',fontsize=axis_fontsize)
-    ax4_vel.set_ylabel('Intensity / arb. units',fontsize=axis_fontsize, rotation=270, labelpad=14)
+    ax4_vel.set_xlabel('Velocity ($km\: s^{-1}$)',fontsize=axis_fontsize)
+    ax4_vel.set_ylabel('Intensity (arb. units)',fontsize=axis_fontsize, rotation=270, labelpad=14)
     ax4_vel.tick_params(axis='both', which='major', labelsize=ticks_fontsize)
     ax4_vel.xaxis.set_major_locator(MultipleLocator(1))
     ax4_vel.xaxis.set_minor_locator(MultipleLocator(0.5))
@@ -449,4 +449,4 @@ counts_vel_fit_lower = VelocityDist(time_vel_fit, temp_vel_fit_rounded-errtemp_v
 peak_vel_lower = vel_fit_plot[np.argmax(counts_vel_fit_lower)]
     
 # plt.show()
-#fig_TOF_spect.savefig('TOF-Spectrum_Final_75uJ_v2.pdf', dpi=300, bbox_inches='tight', format='pdf')
+fig_TOF_spect.savefig('TOF-Spectrum_Final_75uJ_v3.pdf', dpi=300, bbox_inches='tight', format='pdf')

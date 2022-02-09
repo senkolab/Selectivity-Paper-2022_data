@@ -14,6 +14,14 @@ import re
 import pandas as pd
 plt.style.use('seaborn-colorblind')
 
+columnwidth = 225.8775
+fullwidth = 469.75502
+inches_per_pt = 1/72.27
+golden_ratio = (5**.5 - 1) / 2
+fig_width_in = fullwidth * inches_per_pt
+height_ratio = golden_ratio
+fig_height_in = fig_width_in * height_ratio
+
 def getDataCounts(data_path):
     data_file = np.asarray(glob.glob(data_path))[0]
     data = np.asarray(pd.read_csv(data_file, delimiter = "[\]\[\t]", engine='python', skiprows=[0], header=None))
@@ -28,7 +36,7 @@ def getDataCounts(data_path):
         counts_row = 2
     else:
         counts_row = np.where(data_header == 'IonCounts138')[0]
-    counts_data = data[:,counts_row].astype(np.float).astype(np.int).flatten()
+    counts_data = data[:,counts_row].astype(float).flatten()
     return counts_data
 
 def getAverageCountsSingle(counts, trapping):
@@ -77,19 +85,21 @@ data_err_ploteff = [np.std(freq1_trapping)/math.sqrt(10), np.std(freq2_trapping)
 x_plot = [freq1, freq2, freq3, freq4]
 data_plotcounts = np.array([freq1_singlecounts, freq2_singlecounts, freq3_singlecounts, freq4_singlecounts])*10
 
-fig = plt.figure(figsize=(20, 10))
+fig = plt.figure(figsize=(fig_width_in, fig_height_in), dpi=300)
 ax1 = fig.add_subplot(111)
 ax2 = ax1.twinx()
 
-ax1.errorbar(x_plot, data_ploteff, yerr=data_err_ploteff, label='Loading rate', fmt='o', markersize=10)
-ax2.plot(x_plot, data_plotcounts, color='r', label='Counts', marker='o', linestyle='None', markersize=10)
+ax1.errorbar(x_plot, data_ploteff, yerr=data_err_ploteff, label='Loading rate', fmt='o', markersize=3, mew=0.5, elinewidth=1)
+ax2.plot(x_plot, data_plotcounts, color='r', label='Counts', marker='o', linestyle='None', markersize=3)
 
-ax1.set_xlabel('Frequency + %8.6f/ MHz'%optimal_freq,fontsize=30, labelpad=20)
-ax1.set_ylabel('Loading rate (ions/pulse)',fontsize=30, labelpad=23)
-ax1.tick_params(axis='both', which='major', labelsize=20)
-ax1.legend(fontsize=20, loc=2)
-ax2.set_ylim(0, 22000)
-ax2.tick_params(axis='both', which='major', labelsize=20)
-ax2.set_ylabel('Ion brightness (counts/s)', fontsize=30, labelpad=20)
-ax2.legend(fontsize=20, loc=1)
+ax1.set_xlabel('Frequency (MHz + %8.6f THz)'%optimal_freq,fontsize=10)
+ax1.set_ylabel('Loading rate (ions/pulse)',fontsize=10)
+ax1.tick_params(axis='both', which='major', labelsize=7)
+ax1.legend(fontsize=7, loc=2)
+ax2.set_ylim(0, 24000)
+ax2.tick_params(axis='both', which='major', labelsize=6)
+ax2.set_ylabel('Ion brightness (counts/s)', fontsize=10)
+ax2.legend(fontsize=7, loc=1)
 plt.show()
+
+fig.savefig('LoadingRate-vs-Cooling-Freq_v2.pdf', dpi=300, bbox_inches='tight', format='pdf')

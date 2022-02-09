@@ -30,10 +30,19 @@ def fitLorentz(time, A, peak_time, FWHM):
 def fitGaussian(time, A, peak_time, std):
     return A*np.exp(-(time-peak_time)**2/(2*std**2))
 
+columnwidth = 225.8775
+fullwidth = 469.75502
+inches_per_pt = 1/72.27
+golden_ratio = (5**.5 - 1) / 2
+fig_width_in = fullwidth * inches_per_pt
+height_ratio = golden_ratio
+fig_height_in = fig_width_in * height_ratio
+
 data_filepath = r"Ablation-TOF_JustLaser_002*"
 data_files = glob.glob(data_filepath)
 datas = getData(data_files[0])
 data_counts_ave = np.mean(datas, 1)
+data_counts_std = np.std(datas.astype(float), 1)/np.sqrt(datas[0, :].size)
 
 time_start = 139
 time_stop = 146
@@ -74,28 +83,24 @@ fit_params_2, pcov = curve_fit(fitGaussian, times_data, data_counts_ave, p0=para
 times_fit_2 = np.arange(time_start, time_stop, 0.01)
 counts_fit_2 = fitGaussian(times_fit_2, fit_params_2[0], fit_params_2[1], fit_params_2[2])
 
-fig1 = plt.figure(figsize=(20, 10))
+fig1 = plt.figure(figsize=(fig_width_in, fig_height_in), dpi=300)
 ax1 = fig1.add_subplot(111)
 
 data_counts_plot = data_counts_ave
 times = times_data
-ax1.plot(times, data_counts_plot, label='data')
-ax1.set_xlabel(r'Time / $\mu s$',fontsize=30, labelpad=20)
-ax1.set_ylabel('Counts / a.u.',fontsize=30, labelpad=23)
-ax1.tick_params(axis='both', which='major', labelsize=20)
+ax1.errorbar(times, data_counts_plot, yerr=data_counts_std, fmt='o', elinewidth=1, markersize=3, mew=0.5, label='data')
 
 data_counts_plot = counts_fit_1
 times = times_fit_1
-ax1.plot(times, data_counts_plot, label=f'Lorentzian fit: \nA={fit_params_1[0]:0.1f}, t_0={fit_params_1[1]:0.2f}, FWHM={fit_params_1[2]:0.2f}')
-ax1.set_xlabel(r'Time / $\mu s$',fontsize=30, labelpad=20)
-ax1.set_ylabel('Counts / a.u.',fontsize=30, labelpad=23)
-ax1.tick_params(axis='both', which='major', labelsize=20)
+ax1.plot(times, data_counts_plot, alpha=0.6, lw=1, label=f'Lorentzian fit: $A={fit_params_1[0]:0.1f}$, \n$t_0={fit_params_1[1]:0.2f}$, FWHM$={fit_params_1[2]:0.2f}$')
 
 data_counts_plot = counts_fit_2
 times = times_fit_2
-ax1.plot(times, data_counts_plot, label=f'Gaussian fit: \nA={fit_params_2[0]:0.1f}, t_0={fit_params_2[1]:0.2f}, $\sigma$={fit_params_2[2]:0.2f}')
-ax1.set_xlabel(r'Time / $\mu s$',fontsize=30, labelpad=20)
-ax1.set_ylabel('Counts / a.u.',fontsize=30, labelpad=23)
-ax1.tick_params(axis='both', which='major', labelsize=20)
+ax1.plot(times, data_counts_plot, alpha=0.6, lw=1, label=f'Gaussian fit: $A={fit_params_2[0]:0.1f}$, \n$t_0={fit_params_2[1]:0.2f}$, $\sigma={fit_params_2[2]:0.2f}$')
+ax1.set_xlabel(r'Time ($\mu s$)',fontsize=10)
+ax1.set_ylabel('Counts (a.u.)',fontsize=10)
+ax1.tick_params(axis='both', which='major', labelsize=6)
 
-ax1.legend(fontsize=20)
+ax1.legend(fontsize=8, loc=1)
+
+fig1.savefig('Ablation-Pulse-Timing_v2.pdf', dpi=300, bbox_inches='tight', format='pdf')

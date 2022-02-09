@@ -191,7 +191,7 @@ newax.imshow(im)
 newax.axis('off')
 
 ax2.set_xlabel('Pulse number',fontsize=axis_fontsize)
-ax2.set_ylabel('Counts / arb. units',fontsize=axis_fontsize)
+ax2.set_ylabel('Counts (arb. units)',fontsize=axis_fontsize)
 ax2.tick_params(axis='both', which='major', labelsize=ticks_fontsize)
 ax2.xaxis.set_major_locator(MultipleLocator(5000))
 ax2.xaxis.set_minor_locator(MultipleLocator(1000))
@@ -200,10 +200,10 @@ ax2.yaxis.set_minor_locator(MultipleLocator(10))
 ax2.set_xlim(0, 13000)
 ax2.set_ylim(0, 150)
 
-ax2.text(5200, -47, '(b)', ha='center', fontsize=8, font='Times New Roman')
+# ax2.text(5200, -47, '(b)', ha='center', fontsize=8, font='Times New Roman')
 
 ax2.legend(fontsize=legend_fontsize, framealpha=1)
 
 
 
-# fig.savefig('Spot_Lifetimes_Final_v2.pdf', dpi=300, bbox_inches='tight', format='pdf')
+fig.savefig('Spot_Lifetimes_Final_v3.pdf', dpi=300, bbox_inches='tight', format='pdf')

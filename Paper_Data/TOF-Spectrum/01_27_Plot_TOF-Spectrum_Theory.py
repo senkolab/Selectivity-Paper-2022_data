@@ -118,7 +118,7 @@ cf = ax1_TOF_spect.pcolormesh(time_dataplot-pulse_time*1e6, freq_dataplot, count
                               norm=colors.LogNorm(vmin=counts_data.min(), vmax=counts_data.max()), cmap=color_map)
 fig_TOF_spect.colorbar(cf, cax=cax, orientation='vertical')
 ax1_TOF_spect.set_xlabel('Time ($\mu s$)',fontsize=30, labelpad=20)
-ax1_TOF_spect.set_ylabel('Frequency (MHz) + %3.2f THz'%(freq_plotting_offset*1e-12),fontsize=30, labelpad=23)
+ax1_TOF_spect.set_ylabel('Frequency (MHz + %3.2f THz)'%(freq_plotting_offset*1e-12),fontsize=30, labelpad=23)
 ax1_TOF_spect.tick_params(axis='both', which='major', labelsize=20)
 ax1_TOF_spect.set(xlim=(np.min(time_dataplot)-pulse_time*1e6, np.max(time_dataplot)-pulse_time*1e6), \
                   ylim=(np.min(freq_dataplot), np.max(freq_dataplot)))
@@ -173,3 +173,6 @@ ax2_TOF_spect_theory.text(20, 3400, fit_text, fontsize=10, color='w')
 # ax2_TOF_spect_theory.legend(handles = [l1, l2, l3, l4], labels=['Other Isotopes', '0 degrees', '1 degrees', '1.7 degrees'], fontsize=15, loc=1)
 ax2_TOF_spect_theory.legend(fontsize=15, loc=1, framealpha=1)
 plt.show()
+
+# fig_TOF_spect.savefig('TOF-Spectrum_60uJ_supp_v2.pdf', dpi=100, bbox_inches='tight', format='pdf')
+# fig_TOF_spect_theory.savefig('TOF-Spectrum_60uJ_theory_supp_v2.pdf', dpi=100, bbox_inches='tight', format='pdf')
